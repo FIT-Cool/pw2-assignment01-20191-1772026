@@ -18,8 +18,8 @@ if(isset($submitted)){
 <table id="myTable" class="display">
     <thead>
     <tr>
-        <tb>ID</tb>
-        <tb>Name</tb>
+        <th>ID</th>
+        <th>Name</th>
     </tr>
     </thead>
     <tbody>

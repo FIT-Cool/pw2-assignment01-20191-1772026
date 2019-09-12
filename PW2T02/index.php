@@ -11,6 +11,9 @@ include_once 'db_function/genre_func.php';
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pemrograman Web 2</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
 </head>
 <body>
 <div class="page">
@@ -22,6 +25,7 @@ include_once 'db_function/genre_func.php';
             <li><a href="?menu=hm">Home</a></li>
             <li><a href="?menu=at">About</a></li>
             <li><a href="?menu=gr">Genre</a></li>
+            <li><a href="?menu=bk">Book</a></li>
         </ul>
     </nav>
     <main>
@@ -37,6 +41,9 @@ include_once 'db_function/genre_func.php';
             case 'gr';
                 include_once 'view/Genre.php';
                 break;
+            case 'bk';
+                include_once 'view/Book.php';
+                break;
             default;
                 include_once 'view/home.php';
         }
@@ -47,4 +54,9 @@ include_once 'db_function/genre_func.php';
     </footer>
 </div>
 </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
 </html>
