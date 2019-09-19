@@ -1,7 +1,14 @@
 <?php
-$submitted =filter_input(INPUT_POST,'btnSubmit');
-if(isset($submitted)){
-    $name=filter_input(INPUT_POST,'txtName');
+//Block below for delete
+$deleteComand=filter_input(INPUT_GET,'delcom');
+if (isset($deleteComand)&& $deleteComand==1){
+    $id=filter_input(INPUT_GET,'id');
+    deleteGenre($id);
+}
+//Block below for insert
+$submitted = filter_input(INPUT_POST, 'btnSubmit');
+if (isset($submitted)) {
+    $name = filter_input(INPUT_POST, 'txtName');
     addGenre($name);
 }
 ?>
@@ -30,7 +37,7 @@ if(isset($submitted)){
         echo '<tr>';
         echo '<td>' . $genre['id'] . '</td>';
         echo '<td>' . $genre['name'] . '</td>';
-        echo '<td><button onclick="deleteGenre('.$genre['id'].')">Delete</button></td>';
+        echo '<td><button onclick="deleteGenre(' . $genre['id'] . ')">Delete</button></td>';
         echo '</tr>';
     }
     ?>
