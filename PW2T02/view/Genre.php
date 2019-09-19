@@ -20,6 +20,7 @@ if(isset($submitted)){
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,8 @@ if(isset($submitted)){
         echo '<tr>';
         echo '<td>' . $genre['id'] . '</td>';
         echo '<td>' . $genre['name'] . '</td>';
+        echo '<td><button onclick="deleteGenre('.$genre['id'].')">Delete</button></td>';
+        echo '</tr>';
     }
     ?>
     </tbody>
