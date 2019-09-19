@@ -45,6 +45,9 @@ include_once 'db_function/genre_func.php';
             case 'bk';
                 include_once 'view/Book.php';
                 break;
+            case 'ed';
+                include_once 'view/GenreUpdate.php';
+                break;
             default;
                 include_once 'view/home.php';
         }
