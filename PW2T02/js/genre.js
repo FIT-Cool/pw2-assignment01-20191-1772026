@@ -6,5 +6,7 @@ function deleteGenre(id) {
 }
 
 function updateGenre(id) {
+
     window.location = "index.php?menu=ed&id="+id;
 }
+

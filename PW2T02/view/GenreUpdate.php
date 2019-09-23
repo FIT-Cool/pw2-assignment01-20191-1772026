@@ -8,6 +8,7 @@ if (isset($id)){
 //Block below for insert
 $submitted = filter_input(INPUT_POST, 'btnSubmit');
 if (isset($submitted)) {
+    header("Location: index.php?menu=gr");
     $name = filter_input(INPUT_POST, 'txtName');
     updateGenre($id,$name);
 }
@@ -18,7 +19,9 @@ if (isset($submitted)) {
         <label for="txtNameIdx" class="form-label">Name</label>
         <input type="text" id="txtNameIdx" name="txtName" placeholder="Name (e.g Cooking)" autofocus required
                class="form-input" value="<?php echo $genre['name']; ?>">
-        <input  type="submit" name="btnSubmit" value="Update Genre" class="button button-primary">
+
+            <input  type="submit" name="btnSubmit" value="Update Genre" class="button button-primary">
+
     </fieldset>
 </form>
 <!---->
@@ -32,16 +35,6 @@ if (isset($submitted)) {
 <!--    </tr>-->
 <!--    </thead>-->
 <!--    <tbody>-->
-<!--    --><?php
-//    $genres = getAllGenre();
-//    foreach ($genres as $genre) {
-//        echo '<tr>';
-//        echo '<td>' . $genre['id'] . '</td>';
-//        echo '<td>' . $genre['name'] . '</td>';
-//        echo '<td><button onclick="deleteGenre(' . $genre['id'] . ')">Delete</button></td>';
-//        echo '<td><button onclick="updateGenre(' . $genre['id'] . ')">Updates</button></td>';
-//        echo '</tr>';
-//    }
-//    ?>
+
 <!--    </tbody>-->
 <!--</table>-->
