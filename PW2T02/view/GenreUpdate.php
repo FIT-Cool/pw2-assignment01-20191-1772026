@@ -24,17 +24,3 @@ if (isset($submitted)) {
 
     </fieldset>
 </form>
-<!---->
-<!--<table id="myTable" class="display">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>ID</th>-->
-<!--        <th>Name</th>-->
-<!--        <th>Actions Delete</th>-->
-<!--        <th>Actions Update</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-
-<!--    </tbody>-->
-<!--</table>-->

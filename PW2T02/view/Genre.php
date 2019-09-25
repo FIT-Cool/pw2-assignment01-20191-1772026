@@ -27,7 +27,7 @@ if (isset($submitted)) {
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Actions Delete</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
