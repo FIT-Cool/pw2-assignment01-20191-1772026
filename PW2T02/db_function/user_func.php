@@ -2,7 +2,7 @@
 function login($username, $password)
 {
     $link = createMySQLConnection();
-    $query = "SELECT id, username, name FROM user WHERE username = ? AND password = ?";
+    $query = "SELECT id, user,name FROM login WHERE user = ? AND password = ?";
     $statement = $link->prepare($query);
     $statement->bindParam(1, $username);
     $statement->bindParam(2, $password);

@@ -4,9 +4,9 @@ $loginPressed=filter_input(INPUT_POST,'btnLogin');
 if (isset($loginPressed)){
     $usnm=filter_input(INPUT_POST,"txtUsername");
     $pwd=filter_input(INPUT_POST,"txtPassword");
-    $user=login($usnm,md5($pwd));
+    $user=login($usnm,$pwd);
 
-    if ($user!=null && $user['username'] == $usnm){
+    if ($user!=null && $user['user'] == $usnm){
         $_SESSION['user_logged'] = true;
         $_SESSION['name'] = $user['name'];
         header("location:index.php");

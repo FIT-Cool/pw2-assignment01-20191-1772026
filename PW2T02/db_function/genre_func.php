@@ -1,7 +1,7 @@
 <?php
 function getAllGenre()
 {
-    $link = createMySQLConnection();
+    $link=createMySQLConnection();
     $query='SELECT * FROM genre ORDER BY name ';
     $result=$link->query($query);
     return $result;
