@@ -37,7 +37,7 @@ if (isset($submitted)) {
         echo '<tr>';
         echo '<td>' . $genre['id'] . '</td>';
         echo '<td>' . $genre['name'] . '</td>';
-        echo '<td><button onclick="deleteGenre(' . $genre['id'] . ')">Delete</button><button onclick="updateGenre(' . $genre['id'] . ')">Edit</button></td>';
+        echo '<td><button onclick="deleteGenre(\''. $genre['id'] .'\')">Delete</button><button onclick="updateGenre(\''. $genre['id'] .'\')">Edit</button></td>';
         echo '</tr>';
     }
     ?>

@@ -2,6 +2,7 @@
 session_start();
 include_once  'db_function/db_helper.php';
 include_once 'db_function/genre_func.php';
+include_once 'db_function/book_func.php';
 
 if(!isset($_SESSION['user_logged']))
 {
@@ -21,7 +22,7 @@ if(!isset($_SESSION['user_logged']))
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
-    <script type="text/javascript" src="js/my_js.js"></script>
+    <script type="text/javascript" src="js/genre.js"></script>
 </head>
 <body>
 <div class="page">
@@ -55,7 +56,7 @@ if(!isset($_SESSION['user_logged']))
                     include_once 'view/Genre.php';
                     break;
                 case 'gru';
-                    include_once 'view/Genre_Update.php';
+                    include_once 'view/GenreUpdate.php';
                     break;
                 case 'bk';
                     include_once 'view/Book.php';
