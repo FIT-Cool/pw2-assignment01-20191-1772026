@@ -1,1 +1,1 @@
-<h2>Selamat Datang</h2>
+<h2>Selamat Datang <?php echo $_SESSION['name']; ?> </h2>
