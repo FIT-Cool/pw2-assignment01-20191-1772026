@@ -7,3 +7,4 @@ function fieldNotEmpty($fields=array()){
     }
     return true;
 }
+?>
