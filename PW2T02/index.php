@@ -3,6 +3,8 @@ session_start();
 include_once  'db_function/db_helper.php';
 include_once 'db_function/genre_func.php';
 include_once 'db_function/book_func.php';
+include_once 'db_function/user_func.php';
+include_once 'util/view_util.php';
 
 if(!isset($_SESSION['user_logged']))
 {

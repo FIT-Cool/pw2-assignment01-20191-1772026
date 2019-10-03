@@ -6,40 +6,73 @@ if (isset($submitted)) {
     $author = filter_input(INPUT_POST, 'txtAuthor');
     $publisher = filter_input(INPUT_POST, 'txtPublisher');
     $publish_date = filter_input(INPUT_POST, 'txtPublishDate');
-    $genre = filter_input(INPUT_POST, 'genre');
-    addBook($isbn,$title,$author,$publisher,$publish_date,$genre);
+    $synopsis = filter_input(INPUT_POST, 'txtSynopsis');
+    $genre_id = filter_input(INPUT_POST, 'comboGenre');
+    if (fieldNotEmpty(array($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis))) {
+        try {
+            if (isset($_FILES['txtCover']['name'])){
+                $targetDirectory = 'uploads/';
+                $targetFile = $targetDirectory . $isbn . '.' . pathinfo($_FILES['txtCover']['name'], PATHINFO_EXTENSION);
+                move_uploaded_file($_FILES['txtCover']['tmp_name'], $targetFile);
+                addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis,$targetFile);
+            }else{
+                addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis);
+            }
+            header("Location: index.php?menu=bk");
+        } catch (Exception $e) {
+            echo '<script language="javascript">';
+            echo 'alert("ISBN tidak boleh duplicate")';  //not showing an alert box.
+            echo '</script>';
+        }
+//        var_dump($targetFile);
+    } else {
+        $errMessage = 'Please check you input';
+    }
+
+
+//    addBook($isbn, $title, $author, $publisher, $publish_date,$synopsis, $genre);
+}
+if (isset($errMessage)) {
+    echo '<div class="err-msg">' . $errMessage . '</div>';
 }
 ?>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>New Book</legend>
 
-        <label class="form-label">ISBN</label>
+        <label class="form-label">ISBN</label><br>
         <input type="text" id="txtNameIdx" name="txtISBN" placeholder="ISBN" autofocus required
                class="form-input">
         <br>
-        <label class="form-label">Title</label>
+        <label class="form-label">Title</label><br>
         <input type="text" id="txtNameIdx" name="txtTitle" placeholder="Title" autofocus required
                class="form-input">
         <br>
-        <label class="form-label">Author</label>
+        <label class="form-label">Author</label><br>
         <input type="text" id="txtNameIdx" name="txtAuthor" placeholder="Author" autofocus required
                class="form-input">
         <br>
-        <label class="form-label">Publisher</label>
+        <label class="form-label">Publisher</label><br>
         <input type="text" id="txtNameIdx" name="txtPublisher" placeholder="Publisher" autofocus required
                class="form-input">
         <br>
-        <label class="form-label">Publish_Date</label>
-        <input type="text" id="txtNameIdx" name="txtPublishDate" placeholder="Publish_Date" autofocus required
+        <label class="form-label">Publish_Date</label><br>
+        <input type="date" id="txtDateIdx" name="txtPublishDate" placeholder="Publish_Date" autofocus required
                class="form-input">
         <br>
-        <label  class="form-label">Genre</label>
-        <select name="genre" id="">
+        <label class="form-label">Synopsis</label><br>
+        <textarea type="text" id="txtSynopsisIdx" name="txtSynopsis" placeholder="Synopsis" autofocus required
+                  class="form-input"></textarea>
+        <br>
+        <label for="txtCoverIdx" class="form-label">Cover</label><br>
+        <input type="file" name="txtCover" class="form-input">
+        <br>
+        <label class="form-label">Genre</label>
+        <select name="comboGenre" id="">
             <?php
             $genres = getAllGenre();
             foreach ($genres as $genre) {
-                echo '<option value="'.$genre['id'].'">' . $genre['name'] . '</option>';
+                echo '<option value="' . $genre['id'] . '">' . $genre['name'] . '</option>';
             }
             ?>
         </select>
@@ -52,6 +85,7 @@ if (isset($submitted)) {
 <table id="myTable" class="display">
     <thead>
     <tr>
+        <th>Cover</th>
         <th>ISBN</th>
         <th>Title</th>
         <th>Author</th>
@@ -61,20 +95,21 @@ if (isset($submitted)) {
     </tr>
     </thead>
     <tbody>
-        <?php
-        $books = getAllBook();
-        foreach ($books as $book) {
-            echo '<tr>';
-            echo '<td>' . $book['isbn'] . '</td>';
-            echo '<td>' . $book['title'] . '</td>';
-            echo '<td>' . $book['author'] . '</td>';
-            echo '<td>' . $book['publisher'] . '</td>';
+    <?php
+    $books = getAllBook();
+    foreach ($books as $book) {
+        echo '<tr>';
+        echo isset($book['cover']) && file_exists($book['cover']) ? '<td><img src="'.$book['cover'].'"></td>' :'<td></td>';
+        echo '<td>' . $book['isbn'] . '</td>';
+        echo '<td>' . $book['title'] . '</td>';
+        echo '<td>' . $book['author'] . '</td>';
+        echo '<td>' . $book['publisher'] . '</td>';
 
-            echo '<td>' .
-                DateTime::createFromFormat('Y-m-d', $book['publish_date'])->format('d M Y')
-                . '</td>';
-            echo '<td>' . $book['name'] . '</td>';
-        }
-        ?>
+        echo '<td>' .
+            DateTime::createFromFormat('Y-m-d', $book['publish_date'])->format('d M Y')
+            . '</td>';
+        echo '<td>' . $book['name'] . '</td>';
+    }
+    ?>
     </tbody>
 </table>
