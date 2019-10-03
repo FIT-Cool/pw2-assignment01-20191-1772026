@@ -14,7 +14,7 @@ if(!isset($_SESSION['user_logged']))
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="author" content="Yosmart Pangidoan Barakhiel (1772022)">
+    <meta name="author" content="Steven Rumanto (1772026)">
     <meta name="description" content="PHP Navigation and PHP Data Object (PDO)">
     <meta charset="UTF-8">
     <meta name="viewport"
