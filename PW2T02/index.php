@@ -1,13 +1,18 @@
 <?php
 session_start();
-include_once  'db_function/db_helper.php';
-include_once 'db_function/genre_func.php';
-include_once 'db_function/book_func.php';
-include_once 'db_function/user_func.php';
-include_once 'util/view_util.php';
+//include_once  'db_function/db_helper.php';
+//include_once 'db_function/genre_func.php';
+//include_once 'db_function/book_func.php';
+//include_once 'db_function/user_func.php';
+//include_once 'util/view_util.php';
+include_once 'db_function/Connection.php';
+include_once 'db_function/GenreDao.php';
+include_once 'entity/Genre.php';
+include_once 'util/ViewUtil.php';
+include_once 'db_function/UserDao.php';
+include_once 'entity/User.php';
 
-if(!isset($_SESSION['user_logged']))
-{
+if (!isset($_SESSION['user_logged'])) {
     $_SESSION['user_logged'] = false;
 }
 ?>
@@ -29,8 +34,7 @@ if(!isset($_SESSION['user_logged']))
 <body>
 <div class="page">
     <?php
-    if($_SESSION['user_logged'])
-    {
+    if ($_SESSION['user_logged']) {
         ?>
         <header>
             <h2>PHP Navigation 6 PDO</h2>
@@ -76,8 +80,7 @@ if(!isset($_SESSION['user_logged']))
             Pemrograman Web 2 &copy;2019
         </footer>
         <?php
-    } else
-    {
+    } else {
         include_once 'view/login.php';
     }
     ?>

@@ -1,14 +1,15 @@
 <?php
-include_once  'db_function/user_func.php';
+
+$userDao=new UserDao();
 $loginPressed=filter_input(INPUT_POST,'btnLogin');
 if (isset($loginPressed)){
     $usnm=filter_input(INPUT_POST,"txtUsername");
     $pwd=filter_input(INPUT_POST,"txtPassword");
-    $user=login($usnm,$pwd);
-
-    if ($user!=null && $user['user'] == $usnm){
+    /* @var $user User */
+    $user=$userDao->login($usnm,$pwd);
+    if ($user!=null && $user->getUser() == $usnm){
         $_SESSION['user_logged'] = true;
-        $_SESSION['name'] = $user['name'];
+        $_SESSION['name'] = $user->getUser();
         header("location:index.php");
 
     }else{

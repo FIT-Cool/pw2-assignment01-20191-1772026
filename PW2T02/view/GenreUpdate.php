@@ -1,8 +1,11 @@
 <?php
+$genreDao=new GenreDao();
+/* @var $genre Genre*/
 //Block below for delete
 $id=filter_input(INPUT_GET,'id');
 if (isset($id)){
-    $genre=getGenre($id);
+    $genre=$genreDao->getGenre($id);
+
 
 }
 //Block below for insert
@@ -10,7 +13,9 @@ $submitted = filter_input(INPUT_POST, 'btnSubmit');
 if (isset($submitted)) {
     header("Location: index.php?menu=gr");
     $name = filter_input(INPUT_POST, 'txtName');
-    updateGenre($id,$name);
+    $genre->setName($name);
+    $genre->setId($id);
+    $genreDao->updateGenre($genre);
 }
 ?>
 <form method="post">
@@ -18,7 +23,7 @@ if (isset($submitted)) {
         <legend>Update Genre</legend>
         <label for="txtNameIdx" class="form-label">Name</label>
         <input type="text" id="txtNameIdx" name="txtName" placeholder="Name (e.g Cooking)" autofocus required
-               class="form-input" value="<?php echo $genre['name']; ?>">
+               class="form-input" value="<?php echo $genre->getName(); ?>">
 
             <input  type="submit" name="btnSubmit" value="Update Genre" class="button button-primary">
 

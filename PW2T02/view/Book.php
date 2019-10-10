@@ -1,4 +1,6 @@
 <?php
+$bookDao=new BookDao();
+/*@var $book Book*/
 $submitted = filter_input(INPUT_POST, 'btnSubmit');
 if (isset($submitted)) {
     $isbn = filter_input(INPUT_POST, 'txtISBN');
@@ -8,7 +10,7 @@ if (isset($submitted)) {
     $publish_date = filter_input(INPUT_POST, 'txtPublishDate');
     $synopsis = filter_input(INPUT_POST, 'txtSynopsis');
     $genre_id = filter_input(INPUT_POST, 'comboGenre');
-    if (fieldNotEmpty(array($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis))) {
+    if (ViewUtil.fieldNotEmpty(array($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis))) {
         try {
             if (isset($_FILES['txtCover']['name'])){
                 $targetDirectory = 'uploads/';
@@ -70,9 +72,10 @@ if (isset($errMessage)) {
         <label class="form-label">Genre</label>
         <select name="comboGenre" id="">
             <?php
-            $genres = getAllGenre();
+            $genres = $genreDao->getAllGenre();
+            /* @var $genre Genre */
             foreach ($genres as $genre) {
-                echo '<option value="' . $genre['id'] . '">' . $genre['name'] . '</option>';
+                echo '<option value="' . $genre->getId() . '">' . $genre->getName() . '</option>';
             }
             ?>
         </select>
@@ -96,19 +99,20 @@ if (isset($errMessage)) {
     </thead>
     <tbody>
     <?php
-    $books = getAllBook();
+    $books = $bookDao->getAllBook();
+    /* @var $book Book */
     foreach ($books as $book) {
         echo '<tr>';
-        echo isset($book['cover']) && file_exists($book['cover']) ? '<td><img src="'.$book['cover'].'"></td>' :'<td></td>';
-        echo '<td>' . $book['isbn'] . '</td>';
-        echo '<td>' . $book['title'] . '</td>';
-        echo '<td>' . $book['author'] . '</td>';
-        echo '<td>' . $book['publisher'] . '</td>';
+        echo isset( $book['cover'] ) && file_exists($book['cover']) ? '<td><img src="'.$book->getCover().'"></td>' :'<td></td>';
+        echo '<td>' . $book->setIsbn() . '</td>';
+        echo '<td>' . $book->getTitle() . '</td>';
+        echo '<td>' . $book->getAuthor() . '</td>';
+        echo '<td>' . $book->getPublisher() . '</td>';
 
         echo '<td>' .
-            DateTime::createFromFormat('Y-m-d', $book['publish_date'])->format('d M Y')
+            DateTime::createFromFormat('Y-m-d', $book->getPublishDate())->format('d M Y')
             . '</td>';
-        echo '<td>' . $book['name'] . '</td>';
+        echo '<td>' . $book->getGenre() . '</td>';
     }
     ?>
     </tbody>
