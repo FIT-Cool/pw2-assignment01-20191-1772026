@@ -29,9 +29,9 @@ class BookController
                         $targetDirectory = 'uploads/';
                         $targetFile = $targetDirectory . $isbn . '.' . pathinfo($_FILES['txtCover']['name'], PATHINFO_EXTENSION);
                         move_uploaded_file($_FILES['txtCover']['tmp_name'], $targetFile);
-                        addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis, $targetFile);
+                        $this->bookDao->addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis, $targetFile);
                     } else {
-                        addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis);
+                        $this->bookDao->addBook($isbn, $title, $author, $publisher, $publish_date, $genre_id, $synopsis);
                     }
                     header("Location: index.php?menu=bk");
                 } catch (Exception $e) {

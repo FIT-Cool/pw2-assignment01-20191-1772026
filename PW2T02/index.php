@@ -27,6 +27,7 @@ if (!isset($_SESSION['user_logged'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pemrograman Web 2</title>
+    <link rel="stylesheet" href="View/css/index.css">
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
@@ -40,14 +41,13 @@ if (!isset($_SESSION['user_logged'])) {
         <header>
             <h2>PHP Navigation 6 PDO</h2>
         </header>
-        <nav>
-            <ul>
-                <li><a href="?menu=hm">Home</a></li>
-                <li><a href="?menu=at">About</a></li>
-                <li><a href="?menu=gr">Genre</a></li>
-                <li><a href="?menu=bk">Book</a></li>
-                <li><a href="?menu=out">Logout</a></li>
-            </ul>
+        <nav class="flex-container">
+
+            <div><a href="?menu=hm">Home</a></div>
+            <div><a href="?menu=at">About</a></div>
+            <div><a href="?menu=gr">Genre</a></div>
+            <div><a href="?menu=bk">Book</a></div>
+            <div><a href="?menu=out">Logout</a></div>
         </nav>
         <main>
             <?php
