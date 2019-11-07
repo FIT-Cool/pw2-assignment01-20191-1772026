@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11ff3e1-0d03-46e6-b87a-219a988b985d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/BookController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/GenreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_function/BookDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_function/BookDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_function/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_function/ConnectionUtil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_function/GenreDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_function/GenreDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_function/UserDao.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_function/UserDao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_function/book_func.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/Genre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
-    </list>
+    <list default="true" id="f11ff3e1-0d03-46e6-b87a-219a988b985d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/entity/Book.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="139" column="7" lean-forward="true" selection-start-line="139" selection-start-column="7" selection-end-line="139" selection-end-column="7" />
+            <state relative-caret-position="80">
+              <caret line="126" column="7" lean-forward="true" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -310,16 +292,15 @@
       <workItem from="1570667067250" duration="7327000" />
       <workItem from="1570718724470" duration="3084000" />
       <workItem from="1570792295273" duration="1849000" />
-      <workItem from="1573087744801" duration="4063000" />
+      <workItem from="1573087744801" duration="4332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4063000" />
+    <option name="totallyTimeSpent" value="4332000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24281392" />
@@ -489,8 +470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/entity/Book.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="139" column="7" lean-forward="true" selection-start-line="139" selection-start-column="7" selection-end-line="139" selection-end-column="7" />
+        <state relative-caret-position="80">
+          <caret line="126" column="7" lean-forward="true" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
         </state>
       </provider>
     </entry>
