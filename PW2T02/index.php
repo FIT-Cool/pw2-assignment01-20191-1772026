@@ -9,7 +9,7 @@ include_once 'db_function/BookDao.php';
 
 include_once 'entity/Genre.php';
 include_once 'entity/Book.php';
-include_once 'util/ViewUtil.php';
+include_once 'Util/ViewUtil.php';
 include_once 'db_function/UserDao.php';
 include_once 'entity/User.php';
 
@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_logged'])) {
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
-    <script type="text/javascript" src="js/genre.js"></script>
+    <script type="text/javascript" src="View/js/genre.js"></script>
 </head>
 <body>
 <div class="page">
@@ -54,21 +54,21 @@ if (!isset($_SESSION['user_logged'])) {
             $targetMenu = filter_input(INPUT_GET, 'menu');
             switch ($targetMenu) {
                 case 'hm';
-                    include_once 'view/home.php';
+                    include_once 'View/home.php';
                     break;
                 case 'at';
-                    include_once 'view/About.php';
+                    include_once 'View/About.php';
                     break;
                 case 'gr';
-//                    include_once 'view/Genre.php';
+//                    include_once 'View/Genre.php';
                     $genreController=new GenreController();
                     $genreController->index();
                     break;
                 case 'gru';
-                    include_once 'view/GenreUpdate.php';
+                    include_once 'View/GenreUpdate.php';
                     break;
                 case 'bk';
-//                    include_once 'view/Book.php';
+//                    include_once 'View/Book.php';
                     $bookController=new BookController();
                     $bookController->index();
                     break;
@@ -77,7 +77,7 @@ if (!isset($_SESSION['user_logged'])) {
                     header("location:index.php");
                     break;
                 default;
-                    include_once 'view/home.php';
+                    include_once 'View/home.php';
             }
             ?>
         </main>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['user_logged'])) {
     } else {
         $userController=new UserController();
         $userController->index();
-//        include_once 'view/login.php';
+//        include_once 'View/login.php';
     }
     ?>
 </div>

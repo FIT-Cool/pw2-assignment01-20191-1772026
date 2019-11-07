@@ -52,6 +52,6 @@ class BookController
         }
         $genres = $this->genreDao->getAllGenre();
         $books=$this->bookDao->getAllBook();
-        include_once 'view/Book.php';
+        include_once 'View/Book.php';
     }
 }

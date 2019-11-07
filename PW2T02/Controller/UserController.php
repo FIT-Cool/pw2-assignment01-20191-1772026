@@ -27,6 +27,6 @@ class UserController
                 echo $errMsg;
             }
         }
-        include_once 'view/login.php';
+        include_once 'View/login.php';
     }
 }

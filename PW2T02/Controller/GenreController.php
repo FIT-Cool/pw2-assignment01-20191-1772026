@@ -29,6 +29,6 @@ class GenreController
             $this->genreDao->addGenre($genre);
         }
         $genres = $this->genreDao->getAllGenre();
-        include_once 'view/Genre.php';
+        include_once 'View/Genre.php';
     }
 }
