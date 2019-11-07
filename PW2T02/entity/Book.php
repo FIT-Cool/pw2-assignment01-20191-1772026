@@ -125,7 +125,7 @@ class Book
     }
 
     /**
-     * @return mixed
+     * @return Genre
      */
     public function getGenre()
     {

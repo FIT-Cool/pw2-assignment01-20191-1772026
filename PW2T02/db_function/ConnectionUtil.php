@@ -1,7 +1,7 @@
 <?php
 
 
-class Connection
+class ConnectionUtil
 {
     public static function createMySQLConnection()
     {

@@ -5,14 +5,15 @@ class BookDao
 {
     public function getAllBook()
     {
-        $link = Connection.createMySQLConnection();
-        $query='SELECT b.*,g.* FROM book b INNER JOIN genre g ON g.id=b.genre_id';
+        $link = ConnectionUtil::createMySQLConnection();
+        $query='SELECT b.isbn,b.title,b.author,b.publisher,b.publish_date,g.id,g.name FROM book b INNER JOIN genre g ON g.id=b.genre_id';
         $result=$link->query($query);
+        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,"Book");
         return $result;
 
     }
     public function addBook($isbn,$title,$author,$publisher,$publish_date,$genre_id,$synopsis=null,$cover=null){
-        $link = Connection.createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $link->beginTransaction();
         $query='INSERT INTO book VALUES (?,?,?,?,?,?,?,?)';
         $statement = $link->prepare($query);

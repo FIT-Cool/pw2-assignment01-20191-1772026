@@ -5,7 +5,7 @@ class UserDao
 {
     public function login($username, $password)
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $query = "SELECT id, login.user,name FROM login WHERE login.user = ? AND password = md5(?)";
         $statement = $link->prepare($query);
         $statement->bindParam(1, $username);

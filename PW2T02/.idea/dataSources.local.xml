@@ -9,7 +9,6 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <schema-mapping />
     </data-source>
     <data-source name="MariaDB - pw22091@localhost [2]" uuid="040ae6b5-4abe-470b-aba0-186a83f7c970">
       <database-info product="MariaDB" version="10.1.40-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="10.1.40" exact-driver-version="2.4">
@@ -19,11 +18,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema" qname="@" />
-        </introspection-scope>
-      </schema-mapping>
+      <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>
 </project>

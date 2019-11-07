@@ -1,13 +1,14 @@
 <?php
 session_start();
-//include_once  'db_function/db_helper.php';
-//include_once 'db_function/genre_func.php';
-//include_once 'db_function/book_func.php';
-//include_once 'db_function/user_func.php';
-//include_once 'util/view_util.php';
-include_once 'db_function/Connection.php';
+include_once 'Controller/GenreController.php';
+include_once 'Controller/BookController.php';
+include_once 'Controller/UserController.php';
+include_once 'db_function/ConnectionUtil.php';
 include_once 'db_function/GenreDao.php';
+include_once 'db_function/BookDao.php';
+
 include_once 'entity/Genre.php';
+include_once 'entity/Book.php';
 include_once 'util/ViewUtil.php';
 include_once 'db_function/UserDao.php';
 include_once 'entity/User.php';
@@ -59,13 +60,17 @@ if (!isset($_SESSION['user_logged'])) {
                     include_once 'view/About.php';
                     break;
                 case 'gr';
-                    include_once 'view/Genre.php';
+//                    include_once 'view/Genre.php';
+                    $genreController=new GenreController();
+                    $genreController->index();
                     break;
                 case 'gru';
                     include_once 'view/GenreUpdate.php';
                     break;
                 case 'bk';
-                    include_once 'view/Book.php';
+//                    include_once 'view/Book.php';
+                    $bookController=new BookController();
+                    $bookController->index();
                     break;
                 case 'out':
                     session_destroy();
@@ -81,7 +86,9 @@ if (!isset($_SESSION['user_logged'])) {
         </footer>
         <?php
     } else {
-        include_once 'view/login.php';
+        $userController=new UserController();
+        $userController->index();
+//        include_once 'view/login.php';
     }
     ?>
 </div>

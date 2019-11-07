@@ -6,7 +6,7 @@ class GenreDao
 
     public function getAllGenre()
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $query = 'SELECT * FROM genre ORDER BY name ';
         $result = $link->query($query);
         $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,"Genre");
@@ -16,7 +16,7 @@ class GenreDao
 
     public function addGenre(Genre $genre)
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $link->beginTransaction();
         $query = 'INSERT INTO genre(name) VALUES (?)';
         $statement = $link->prepare($query);
@@ -31,7 +31,7 @@ class GenreDao
 
     public function deleteGenre(Genre $genre)
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $link->beginTransaction();
         $query = 'DELETE FROM genre WHERE id = ?';
         $statement = $link->prepare($query);
@@ -46,7 +46,7 @@ class GenreDao
 
     public function updateGenre(Genre $genre)
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $link->beginTransaction();
         $query = 'UPDATE genre SET name = ? WHERE id = ?';
         $statement = $link->prepare($query);
@@ -62,7 +62,7 @@ class GenreDao
 
     public function getGenre($id)
     {
-        $link = Connection::createMySQLConnection();
+        $link = ConnectionUtil::createMySQLConnection();
         $query = "SELECT * from genre WHERE id = ? LIMIT 1";
         $statement = $link->prepare($query);
         $statement->bindValue(1, $id, PDO::PARAM_INT);
