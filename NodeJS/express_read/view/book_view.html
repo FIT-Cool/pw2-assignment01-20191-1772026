@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/book_view.css"/>
+</head>
+<body>
+<form method="post">
+    <fieldset>
+        <legend>New Book</legend>
+
+        <label class="form-label">ISBN</label><br>
+        <input type="text" id="txtISBNIdx" name="txtISBN" placeholder="ISBN" autofocus required
+               class="form-input">
+        <br>
+        <label class="form-label">Title</label><br>
+        <input type="text" id="txtTitleIdx" name="txtTitle" placeholder="Title" autofocus required
+               class="form-input">
+        <br>
+        <label class="form-label">Author</label><br>
+        <input type="text" id="txtAuthorIdx" name="txtAuthor" placeholder="Author" autofocus required
+               class="form-input">
+        <br>
+        <label class="form-label">Publisher</label><br>
+        <input type="text" id="txtPublisherIdx" name="txtPublisher" placeholder="Publisher" autofocus required
+               class="form-input">
+        <br>
+        <label class="form-label">Publish_Date</label><br>
+        <input type="date" id="txtDateIdx" name="txtPublishDate" placeholder="Publish_Date" autofocus required
+               class="form-input">
+        <br>
+        <label class="form-label">Synopsis</label><br>
+        <textarea type="text" id="txtSynopsisIdx" name="txtSynopsis" placeholdr="Synopsis" autofocus required
+                  class="form-input"></textarea>
+        <br>
+        <label for="txtCoverIdx" class="form-label">Cover</label><br>
+        <input type="file" name="txtCover" id="txtCoverIdx" class="form-input">
+        <br>
+        <label class="form-label">Genre</label>
+        <select name="comboGenre" id="">
+        </select>
+        <br>
+        <input type="submit" name="btnSubmit" value="Add Book" class="button button-primary">
+
+    </fieldset>
+</form>
+
+<table id="myTable" class="display">
+    <thead>
+    <tr>
+        <th>Cover</th>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Publish_Date</th>
+        <th>Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
